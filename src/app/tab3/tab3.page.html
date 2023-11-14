@@ -13,5 +13,8 @@
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <ion-button (click)="takePicture()">Ouvrir la caméra</ion-button>
+
+  <img *ngIf="b64" [src]="'data:image/png;base64,'+b64" alt="ma photo"/>
+
 </ion-content>
