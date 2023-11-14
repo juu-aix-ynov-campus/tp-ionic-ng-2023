@@ -9,4 +9,8 @@ export class Tab2Page {
 
   constructor() {}
 
+  onWanted(event: string) {
+    console.log('onWanted', event);
+  }
+
 }

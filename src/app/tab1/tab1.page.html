@@ -12,7 +12,11 @@
       <ion-title size="large">Tab 1</ion-title>
     </ion-toolbar>
   </ion-header>
+
   <ion-input (ionInput)="onInput($event)"></ion-input>
-  <ion-button [size]="size">{{label}}</ion-button>
+
+  <ion-button [size]="size" (click)="onSubmit()">{{label}}</ion-button>
+
   <ion-text>{{value}}</ion-text>
+
 </ion-content>
