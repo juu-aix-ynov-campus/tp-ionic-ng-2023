@@ -44,9 +44,20 @@ jobs:
           cache: 'npm'
 
       - run: npm ci
+      - run: npm run build
 
       - name: Capacitor Android Sync
         run: npx cap sync android
+
+      - name: Gradle build
+        run: ./gradlew :app:build
+        working-directory: android
+
+      - name: Upload Bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-release
+          path: android/app/build/outputs/apk/release/app-release-unsigned.apk
 
   ios:
     name: iOS
@@ -62,6 +73,7 @@ jobs:
           cache: 'npm'
 
       - run: npm ci
+      - run: npm run build
 
       - name: Capacitor iOS Sync
         run: npx cap sync iOS
